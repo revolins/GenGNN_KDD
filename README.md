@@ -5,9 +5,8 @@
 1. Install [Conda](https://www.anaconda.com/docs/getting-started/anaconda/install) (our version = 23.7.2) 
 2. Create GenGNN's environment:  
    ```bash
-   # manually set PATH `prefix:` in gnn.yaml (or remove if using default)
-   conda env create -f ggn.yaml
-   conda activate ggn
+   conda env create -f gen.yml
+   conda activate gen
    ```
 3. Run the following commands to check if the installation of the main packages was successful:  
    ```bash
@@ -35,7 +34,7 @@
 * All commands use `python main.py` with custom global environment overrides. Note that `main.py` is inside the `src` directory.
 * Experimental configs are under `configs/experiment`. 
     * ablation_study.components within config is used to specify GenGNN components (LayerNorm, FFN, Node+Edge Gating, Residual, RRWP Node/Edge Features).
-    * model.type specifices GenGNN: `conv`, PPGN: `ppgn`, GraphTransformer: `gt`. Note `ppgn` and `gt` will not override RRWP Node/Edge Features.
+    * model.type specifies GenGNN: `conv`, PPGN: `ppgn`, GraphTransformer: `gt`. Note `ppgn` and `gt` will not override RRWP Node/Edge Features.
     * model.name specifies `digress` or `defog`
 * Experimental config and model checkpoint files use the following naming convention:
     * DeFoG: `{backbone}_{dataset}`

@@ -1,9 +1,9 @@
 [tool.poetry]
 name = "magnipy"
-version = ""
+version = "0.0.0"
 description = "A framework for computing the magnitude of a metric space."
-authors = ["anonymous"]
-repository="anonymous"
+authors = ["Anonymous <anonymous@anoymous.an>"]
+repository="https://anonymous.4open.science/r/GenGNN_KDD-252E"
 keywords = ["metric space magnitude"]
 license = "BSD-3-Clause"
 readme = "README.md"
