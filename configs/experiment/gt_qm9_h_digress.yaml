@@ -1,0 +1,103 @@
+# @package _global_
+general:
+  name: gt_qm9_h_digress
+  wandb: offline
+  gpus:
+  - 3
+  resume: null
+  test_only: null
+  check_val_every_n_epochs: 1
+  sample_every_val: 1
+  val_check_interval: null
+  samples_to_generate: 128
+  samples_to_save: 20
+  chains_to_save: 1
+  log_every_steps: 50
+  number_chain_steps: 50
+  generated_path: null
+  final_model_samples_to_generate: 10000
+  final_model_samples_to_save: 30
+  final_model_chains_to_save: 20
+  num_sample_fold: 1
+  evaluate_all_checkpoints: false
+  save_samples: true
+  conditional: false
+  target: k2
+  guidance_weight: 2.0
+model:
+  transition: marginal
+  model: gt_qm9_h_digress
+  lambda_train:
+  - 5
+  - 0
+  type: gt
+  diffusion_steps: 500
+  diffusion_noise_schedule: cosine
+  n_layers: 9
+  extra_features: rrwp
+  rrwp_steps: 12
+  hidden_mlp_dims:
+    X: 256
+    E: 128
+    y: 256
+  hidden_dims:
+    dx: 256
+    de: 128
+    dy: 256
+    n_head: 8
+    dim_ffX: 256
+    dim_ffE: 64
+    dim_ffy: 256
+  ablation_study:
+    components:
+      use_dropout: true
+      use_edge_gating: true
+      use_feedforward: true
+      use_gcn: false
+      use_gin: false
+      use_node_gating: true
+      use_normalization: true
+      use_residual: true
+      use_rrwp_edge_features: false
+      use_rrwp_node_features: false
+    enabled: true
+  dropout: 0.0
+  edge_class_onehot: true
+  edge_feat_dim: 14
+  edge_source: concat
+  edge_weight_mode: linear
+  ffn: true
+  ffn_hidden: 128
+  ffn_norm: batch
+  name: digress
+  norm: batch
+  residual: true
+train:
+  n_epochs: 750
+  batch_size: 512
+  lr: 0.0002
+  clip_grad: 1.0
+  save_model: true
+  num_workers: 1
+  ema_decay: 0.0
+  progress_bar: false
+  weight_decay: 1.0e-12
+  optimizer: adamw
+  seed: 42
+  time_distortion: identity
+dataset:
+  name: qm9
+  datadir: data/qm9/qm9_pyg/
+  remove_h: false
+  random_subset: null
+  pin_memory: false
+  compute_fcd: true
+  aromatic: true
+sample:
+  eta: 0.0
+  omega: 0.0
+  sample_steps: 500
+  time_distortion: polydec
+  search: false
+  rdb: general
+  rdb_crit: dummy

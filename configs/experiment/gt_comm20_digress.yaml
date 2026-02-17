@@ -1,0 +1,116 @@
+# @package _global_
+general:
+  name: gt_comm20_digress
+  wandb: offline
+  gpus:
+  - 4
+  resume: null
+  test_only: null
+  check_val_every_n_epochs: 1000
+  sample_every_val: 1
+  val_check_interval: null
+  samples_to_generate: 20
+  samples_to_save: 20
+  chains_to_save: 1
+  log_every_steps: 50
+  number_chain_steps: 50
+  generated_path: null
+  final_model_samples_to_generate: 20
+  final_model_samples_to_save: 4
+  final_model_chains_to_save: 4
+  num_sample_fold: 1
+  evaluate_all_checkpoints: false
+  save_samples: true
+  conditional: false
+  target: k2
+  guidance_weight: 2.0
+  sample_steps: 1000
+model:
+  transition: marginal
+  model: gt_comm20_digress
+  lambda_train:
+  - 5
+  - 0
+  type: gt
+  diffusion_steps: 500
+  diffusion_noise_schedule: cosine
+  n_layers: 8
+  extra_features: rrwp
+  rrwp_steps: 12
+  hidden_mlp_dims:
+    X: 64
+    E: 32
+    y: 64
+  hidden_dims:
+    dx: 128
+    de: 32
+    dy: 128
+    n_head: 4
+    dim_ffX: 128
+    dim_ffE: 32
+    dim_ffy: 128
+  ablation_study:
+    components:
+      use_dropout: true
+      use_edge_gating: true
+      use_feedforward: true
+      use_gcn: false
+      use_gin: false
+      use_node_gating: true
+      use_normalization: true
+      use_residual: true
+      use_rrwp_edge_features: true
+      use_rrwp_node_features: true
+    enabled: true
+  dropout: 0.2
+  edge_class_onehot: true
+  edge_feat_dim: 14
+  edge_source: concat
+  edge_weight_mode: linear
+  ffn: true
+  ffn_hidden:
+  - 64
+  - 64
+  - 64
+  - 64
+  - 64
+  - 64
+  - 64
+  - 64
+  - 64
+  - 64
+  - 64
+  - 64
+  ffn_norm: batch
+  name: digress
+  norm: batch
+  residual: true
+train:
+  n_epochs: 100000
+  batch_size: 256
+  lr: 0.0001
+  clip_grad: 1.0
+  save_model: true
+  num_workers: 1
+  ema_decay: 0.0
+  progress_bar: false
+  weight_decay: 1.0e-12
+  optimizer: adamw
+  seed: 42
+  time_distortion: identity
+dataset:
+  name: comm20
+  datadir: data/comm20/
+  remove_h: true
+  random_subset: null
+  pin_memory: false
+  compute_fcd: true
+  aromatic: true
+sample:
+  eta: 0.0
+  omega: 0.0
+  sample_steps: 1000
+  time_distortion: identity
+  search: false
+  rdb: general
+  rdb_crit: dummy
