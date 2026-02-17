@@ -1,6 +1,6 @@
 # @package _global_
 general:
-  name: guacamol_gt
+  name: gnn_guacamol
   gpus: 1
   wandb: online
   resume: null
@@ -17,7 +17,7 @@ general:
   final_model_chains_to_save: 4
 train:
   optimizer: adam
-  n_epochs: 24
+  n_epochs: 1000
   num_workers: 1
   batch_size: 56
   save_model: true
@@ -30,9 +30,9 @@ sample:
 model:
   n_layers: 12
   name: defog
-  type: gt
+  type: conv
   transition: marginal
-  model: gt_guacamol
+  model: gnn_guacamol
   hidden_mlp_dims:
     X: 256
     E: 128

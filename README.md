@@ -4,8 +4,8 @@
 
 1. Install [Conda](https://www.anaconda.com/docs/getting-started/anaconda/install) (our version = 23.7.2) 
 2. Create GenGNN's environment:  
-   set PATH `prefix:` in gnn.yaml (or remove if using default)
    ```bash
+   # manually set PATH `prefix:` in gnn.yaml (or remove if using default)
    conda env create -f ggn.yaml
    conda activate ggn
    ```
@@ -27,7 +27,7 @@
    ```
    cd magnipy
    poetry install
-
+   ```
 ---
 
 ## Usage
@@ -37,9 +37,9 @@
     * ablation_study.components within config is used to specify GenGNN components (LayerNorm, FFN, Node+Edge Gating, Residual, RRWP Node/Edge Features).
     * model.type specifices GenGNN: `conv`, PPGN: `ppgn`, GraphTransformer: `gt`. Note `ppgn` and `gt` will not override RRWP Node/Edge Features.
     * model.name specifies `digress` or `defog`
-* Experimental config files use the following naming convention (except GuacaMol and MOSES)
-    * DeFoG: {backbone}_{dataset}
-    * DiGress: {backbone}_{dataset}_digress
+* Experimental config and model checkpoint files use the following naming convention:
+    * DeFoG: `{backbone}_{dataset}`
+    * DiGress: `{backbone}_{dataset}_digress`
 * `general.gpus` utilizes a list in order to enable direct specification of GPU number (i.e. `general.gpus=[0]`), multi-gpu support is untested.
 
 ### Training GenGNN
@@ -62,9 +62,7 @@ python main.py experiment=gnn_comm20 general.gpus=[0] general.test_only=gnn_comm
 
 Checkpoints available here: [Google Drive](https://drive.google.com/drive/folders/16GxPMxZI7YNLZ7UVAuiHUyfLLilMciQ5?usp=sharing).
 
-### Checkpoint Notes+Folder Structure:
-* Model checkpoints are organized by model and then dataset.
-* Model checkpoints follow the same naming convention as experimental configs.
+### Checkpoint Folder Structure:
 
 - GenGNN
     - DeFoG/
@@ -75,7 +73,7 @@ Checkpoints available here: [Google Drive](https://drive.google.com/drive/folder
         - SBM/
         - Tree/
         - ZINC250K/
-        - guacamol + moses checkpoints
+        - guacamol + moses checkpoint files
     - DiGress/
         - Comm20/
         - Planar/

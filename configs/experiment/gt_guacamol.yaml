@@ -1,15 +1,14 @@
 # @package _global_
 general:
-  name: moses
+  name: gt_guacamol
   gpus: 1
   wandb: online
-  remove_h: true
   resume: null
   test_only: null
   check_val_every_n_epochs: 1
   val_check_interval: null
-  sample_every_val: 1
-  samples_to_generate: 256
+  sample_every_val: 2
+  samples_to_generate: 500
   samples_to_save: 20
   chains_to_save: 5
   log_every_steps: 50
@@ -17,23 +16,23 @@ general:
   final_model_samples_to_save: 4
   final_model_chains_to_save: 4
 train:
-  optimizer: adamw
-  n_epochs: 159
-  batch_size: 512
+  optimizer: adam
+  n_epochs: 24
+  num_workers: 1
+  batch_size: 56
   save_model: true
   lr: 2e-4
-  num_workers: 1
   time_distortion: polydec
 sample:
   time_distortion: polydec
-  omega: 0.5
-  eta: 200
+  omega: 0.1
+  eta: 300
 model:
   n_layers: 12
   name: defog
-  type: conv
+  type: gt
   transition: marginal
-  model: gnn_moses
+  model: gt_guacamol
   hidden_mlp_dims:
     X: 256
     E: 128
@@ -71,9 +70,8 @@ model:
   norm: batch
   residual: true
 dataset:
-  name: moses
-  datadir: data/moses/moses_pyg/
+  name: guacamol
+  datadir: data/guacamol/guacamol_pyg/
   remove_h: null
-  filter: false
+  filter: true
   compute_fcd: false
-  aromatic: false

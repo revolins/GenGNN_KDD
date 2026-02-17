@@ -1,6 +1,6 @@
 # @package _global_
 general:
-  name: moses_gt
+  name: gnn_moses
   gpus: 1
   wandb: online
   remove_h: true
@@ -18,7 +18,7 @@ general:
   final_model_chains_to_save: 4
 train:
   optimizer: adamw
-  n_epochs: 160
+  n_epochs: 159
   batch_size: 512
   save_model: true
   lr: 2e-4
@@ -31,9 +31,9 @@ sample:
 model:
   n_layers: 12
   name: defog
-  type: gt
+  type: conv
   transition: marginal
-  model: gt_moses
+  model: gnn_moses
   hidden_mlp_dims:
     X: 256
     E: 128
