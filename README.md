@@ -24,7 +24,7 @@
    ```
 5. Compile magnipy:
    ```
-   cd magnipy
+   cd magnipy # From Root -- From orca: cd ../../../magnipy
    poetry install
    ```
 ---
