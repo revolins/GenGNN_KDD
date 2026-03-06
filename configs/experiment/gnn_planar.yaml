@@ -15,7 +15,7 @@ general:
   log_every_steps: 50
   number_chain_steps: 50
   generated_path: null
-  final_model_samples_to_generate: 20
+  final_model_samples_to_generate: 40
   final_model_samples_to_save: 4
   final_model_chains_to_save: 4
   num_sample_fold: 1
