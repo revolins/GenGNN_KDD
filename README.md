@@ -52,11 +52,6 @@ python main.py experiment=<backbone_dataset_model> general.gpus=[gpu number]
 python main.py experiment=<backbone_dataset_model> general.gpus=[gpu number] general.test_only=<checkpoint>
 ```
 
-### Example GenGNN Evaluation
-```bash
-python main.py experiment=gnn_comm20 general.gpus=[0] general.test_only=gnn_comm20.ckpt
-```
-
 ## Checkpoints
 
 Updated Checkpoints Coming Soon!
