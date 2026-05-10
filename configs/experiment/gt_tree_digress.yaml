@@ -31,24 +31,24 @@ model:
   lambda_train:
   - 5
   - 0
-  type: conv
+  type: gt
   diffusion_steps: 500
   diffusion_noise_schedule: cosine
-  n_layers: 12
+  n_layers: 10
   extra_features: rrwp
   rrwp_steps: 12
   hidden_mlp_dims:
     X: 128
-    E: 16
-    y: 32
+    E: 64
+    y: 128
   hidden_dims:
-    dx: 128
+    dx: 256
     de: 64
     dy: 64
     n_head: 8
-    dim_ffX: 128
+    dim_ffX: 256
     dim_ffE: 64
-    dim_ffy: 128
+    dim_ffy: 256
   ablation_study:
     components:
       use_dropout: true

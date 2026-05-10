@@ -59,25 +59,4 @@ python main.py experiment=gnn_comm20 general.gpus=[0] general.test_only=gnn_comm
 
 ## Checkpoints
 
-Checkpoints available here: [Google Drive](https://drive.google.com/drive/folders/16GxPMxZI7YNLZ7UVAuiHUyfLLilMciQ5?usp=sharing).
-
-### Checkpoint Folder Structure:
-
-- GenGNN
-    - DeFoG/
-        - Comm20/
-        - Planar/
-        - QM9/
-        - QM9(H)/
-        - SBM/
-        - Tree/
-        - ZINC250K/
-        - guacamol + moses checkpoint files
-    - DiGress/
-        - Comm20/
-        - Planar/
-        - QM9/
-        - QM9(H)/
-        - SBM/
-        - Tree/
-        - ZINC250K/
+Updated Checkpoints Coming Soon!
